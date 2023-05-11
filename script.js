@@ -74,18 +74,14 @@ function Game(){
 let playerScore = 0;
 let computerScore = 0;
 do {
-if(gameRound()) {
-    playerScore++
-    console.log(`Player Score: ${playerScore}`)
-    console.log(`Computer Score: ${computerScore}`)
-}else if (!gameRound()) {
-    computerScore++
-    console.log(`Computer Score: ${computerScore}`)
-    console.log(`Player Score: ${playerScore}`)
-}else {
-    console.log(`Player Score: ${playerScore}`)
-    console.log(`Computer Score: ${computerScore}`)
-}
+    roundResult = gameRound();
+    if (roundResult === true) {
+      playerScore++;
+    } else if (roundResult === false) {
+      computerScore++;
+    }
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Computer Score: ${computerScore}`);
 }while (playerScore < 3 && computerScore < 3)
 
 if (playerScore > computerScore){
